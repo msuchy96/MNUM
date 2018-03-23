@@ -1,6 +1,7 @@
 function [] = Zadanie2a(n)
     A = a_genA(n);          %generator macierzy wejœciowej A
     b = a_genB(n);          %generator macierzy wejœciowej b
+    b=b';
     
     tic                     %rozpoczêcie pomiaru czasu
     L1 = cholesky(A,n);     %rozk³ad metod¹ Cholesky'ego-Banachiewicza

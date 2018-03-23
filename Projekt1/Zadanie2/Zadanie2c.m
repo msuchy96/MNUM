@@ -1,6 +1,7 @@
 function [] = Zadanie2c(n)
     A = c_genA(n);
     b = c_genB(n);
+    b=b';
     
     tic                     %rozpoczêcie pomiaru czasu
     L1 = cholesky(A,n);     %rozk³ad metod¹ Cholesky'ego-Banachiewicza
