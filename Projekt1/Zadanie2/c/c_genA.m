@@ -8,7 +8,5 @@ function [A] = c_genA(n)
                 j=j+1;
             end
         end
-    A = triu(A)+triu(A,1)' %symetry
-    fprintf('Wygenerowano macierz A: \n');
-    disp(A);
+    A = triu(A)+triu(A,1)'; %odbicie symetryczne wobec przek¹tnej
 end

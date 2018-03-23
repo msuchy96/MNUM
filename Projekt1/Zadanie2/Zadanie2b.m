@@ -3,7 +3,7 @@ function [] = Zadanie2b(n)
     b = b_genB(n);
     
     tic                     %rozpoczêcie pomiaru czasu
-    L1 = cholesky(A,b,n);   %rozk³ad metod¹ Cholesky'ego-Banachiewicza
+    L1 = cholesky(A,n);     %rozk³ad metod¹ Cholesky'ego-Banachiewicza
     x = solveEq(L1,b);      %rozwi¹zanie równania
     t = toc;                %koniec pomiaru czasu
     
