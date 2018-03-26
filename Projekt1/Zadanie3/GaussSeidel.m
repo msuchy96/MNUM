@@ -1,10 +1,5 @@
 function[x,iter] = GaussSeidel(A,b,n,e) 
     x = zeros(n,1);
-    %Sprawdzenie warunku dostatecznego zbie¿noœci
-    if(warDost(A,n) == 0)
-        disp('Warunek silnej dominacji diagonalnej nie jest spelniony');
-        return
-    end
     
     %Stworzenie macierzy naddiagonalne, poddiagonalnej i diagonalnej
     [L,D,U] = rozkladGaussSeidel(A,n);
