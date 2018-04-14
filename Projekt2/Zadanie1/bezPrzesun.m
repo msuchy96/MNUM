@@ -6,7 +6,7 @@ function [wartWlasne, iteracje, time, ok] = bezPrzesun(D, tolerance, imax)
     i = 1; 
     
     while i <= imax && max(max(D-diag(diag(D)))) > tolerance
-        [Q1, R1] = qrZmodGs(D);
+        [Q1, R1] = qrZmodGS(D);
         D = R1*Q1; %macierz po przekszta³ceniu
         i = i + 1;
     end

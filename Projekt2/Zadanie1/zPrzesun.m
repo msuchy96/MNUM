@@ -7,21 +7,24 @@ function [wartWlasne, iteracje, time, ok] = zPrzesun(A,tolerance,imax)
     wartWlasne = diag(zeros(n));
     iteracje = 0;
     INITIALsubmatrix = A;
-    for k=n:-1;2
+    for k=n:-1:2
         DK = INITIALsubmatrix(1:k, 1:k); %macierz potrzebna do wyznaczenia wartosci w1
         i = 0;
+       
         while i <= imax && max(abs(DK(k,1:k-1))) > tolerance
-            ev = roots([1, -(DK(k-1,k-1)+DK(k,k)), DK(k-1,k-1)*DK(k,k)-DK(k,k-1)*DK(k-1,k)]);
-            if abs(ev(1)-DK(k,k)) <= abs(ev(2)-DK(k,k))
+            
+            ev = roots([1, -(DK(k-1,k-1)+DK(k,k)), DK(k,k)*DK(k-1,k-1)-DK(k,k-1)*DK(k-1,k)]);
+            if abs(ev(1)-DK(k,k)) < abs(ev(2)-DK(k,k))
                 shift = ev(1); % nasze przesuniecie jako najbli¿sza DK(k,k) wartosc 
                                % wlasna analizowanej macierzy 2x2
             else
-            shift = ev(2);
+                shift = ev(2);
             end
             DK = DK - eye(k)*shift; %nasza macierz przesuniêta
             [Q1, R1] = qrZmodGS(DK); %faktoryzacja QR
             DK = R1*Q1 + eye(k)*shift; %macierz przekszta³cona
-            i = i+1; 
+            i = i+1;
+            
             iteracje = iteracje + 1;
         end
         
