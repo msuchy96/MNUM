@@ -3,7 +3,7 @@
 %na podstawie ksi¹zki prof. Tatjewskiego
 function [Q,R] = qrZmodGS(A)
     [m n] = size(A);
-    Q = zeros(m,n);
+    Q = zeros(m,n); 
     R = zeros(n,n);
     d = zeros(1,n);
     %rozk³ad A z kolumnami Q ortogonalnymi
